@@ -38,7 +38,7 @@ module RailsCallbackLog
     # @override_target will be set. If the callback was a symbol method name
     # then @method_name will be set.
     def expand(target, value, block)
-      if target.class == StudyGroup
+      if target.class.to_s == 'StudyGroup'
         event = "#{target.class.to_s} :: #{@override_block || @override_target || @method_name}"
         ::RailsCallbackLog.log(event)
       end
